@@ -11,7 +11,7 @@ export function AuthProvider({ children }) {
             async function fetchUser() {
                 const stored = localStorage.getItem("token");
                 if (stored){
-                    const user= await api.get(ROUTES.ME)
+                    const user= await api.get("me")
                     setUser(user.data.user)
                 }; 
             }

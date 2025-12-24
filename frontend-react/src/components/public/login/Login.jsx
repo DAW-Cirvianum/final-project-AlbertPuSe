@@ -1,12 +1,13 @@
 import { useContext, useState } from "react"
 import { api } from "../../../api"
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContext";
 import { ROUTES } from "../../../routes";
 
 export default function Login(){
     const [form, setForm] = useState({ login: '', password: '' })
-    const { user, setUser} = useContext(AuthContext);
+    const { setUser } = useContext(AuthContext);
+    const navigate = useNavigate();
 
   const handleChange = e => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -20,7 +21,7 @@ export default function Login(){
         const token = res.data.token
         setUser(res.data.user)
         localStorage.setItem("token",token);
-        <Navigate to={ROUTES.HOME}/>
+        navigate(ROUTES.HOME)
     } catch (error) {
         console.error(error);
       }

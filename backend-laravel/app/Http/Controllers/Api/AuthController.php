@@ -23,8 +23,7 @@ class AuthController extends Controller
             return response()->json([
                 'status'=>false,
                 'message'=>$validator->errors(),
-                'errorCode'=>422
-            ]);
+            ],422);
         }
         $data= $validator->validated();
 
@@ -38,9 +37,13 @@ class AuthController extends Controller
 
         $token = $user->createToken('api-token')->plainTextToken;
         return response()->json([
-            'message'=>'User created',
             'token'=>$token,
-            'user'=>$user,
+            'user'=>[
+                "name"=>$user->name,
+                "username"=>$user->username,
+                "role"=>$user->role,
+                "email"=>$user->email
+            ]
         ],200);
     }
 

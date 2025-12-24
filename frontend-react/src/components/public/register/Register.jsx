@@ -1,8 +1,15 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { ROUTES } from "../../../routes"
+import { api } from "../../../api"
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthContext"
 
 export default function Register(){
     const [form, setForm] = useState({ name: '', username: '', email: '', phone: '', password: '', password_confirmation: '' })
-    
+    const [error, setError]= useState(null)
+    const {setUser}=useContext(AuthContext)
+    const navigate = useNavigate();
+
     const handleChange = e => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
@@ -11,14 +18,32 @@ export default function Register(){
     e.preventDefault()
     const fetchUser = async () => {
       try {
-        const res = await api.post('/register',{ "name":form.login, "username":form.password, "email":form.email, "phone":form.phone, "password":form.password, "password_confirmation":form.password_confirmation});
-        <Navigate to={ROUTES.HOME}/>
+        console.log(form);
+        const res = await api.post('register',{ 
+            "name":form.name, 
+            "username":form.username, 
+            "email":form.email, 
+            "password":form.password, 
+            "password_confirmation":form.password_confirmation
+        })
+        console.log(res.data.user.name)
+        setUser(res.data.user)
+        localStorage.setItem("token",res.data.token);
+        navigate(ROUTES.HOME)
     } catch (error) {
         console.error(error);
+        setError("No s'ha pogut crear l'usuari, torni a intentar")
       }
     };
     fetchUser();
   }
+
+    function showError(){
+        if(error){
+            return <p>{error}</p>
+        }
+    }
+
     return(
         <>
             <form onSubmit={handleSubmit}>
@@ -75,6 +100,7 @@ export default function Register(){
                     placeholder="Repeteix la contrasenya" 
                     required
                 />
+                {showError()}
                 <button>Enviar</button>
             </form>
         </>
