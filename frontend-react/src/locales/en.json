@@ -1,0 +1,17 @@
+{
+    "welcome": "Welcome to React + Vite",
+    "login": "Log in",
+    "logout": "Log out",
+    "user": {
+        "name": "User name"
+    },
+    "Auction":"Auction",
+    "auction":"auction",
+    "Articles": "Articles",
+    "articles": "articles",
+    "Art":"Art",
+    "art":"art",
+    "Home":"Home",
+    "Forum":"Forum"
+
+}

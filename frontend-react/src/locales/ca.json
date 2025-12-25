@@ -1,0 +1,16 @@
+{
+    "welcome": "Benvingut a React + Vite",
+    "login": "Inicia sessió",
+    "logout": "Tanca sessió",
+    "user": {
+        "name": "Nom d'usuari"
+    },
+    "Auction":"Subhasta",
+    "auction":"subhasta",
+    "Articles": "Articles",
+    "articles": "articles",
+    "Art":"Art",
+    "art":"art",
+    "Home":"Inici",
+    "Forum":"Fòrum"
+}

@@ -1,0 +1,17 @@
+{
+    "welcome": "Welcome to React + Vite",
+    "login": "Log in",
+    "logout": "Log out",
+    "user": {
+        "name": "User name"
+    },
+    "Auction": "Subasta",
+    "auction": "subasta",
+    "Articles": "Artículos",
+    "articles": "artículos",
+    "Art":"Arte",
+    "art":"arte",
+    "Home":"Inicio",
+    "Forum":"Foro"
+
+}
