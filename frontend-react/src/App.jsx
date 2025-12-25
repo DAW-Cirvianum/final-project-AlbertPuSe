@@ -4,16 +4,22 @@ import Register from './components/public/register/Register'
 import Forum from './components/public/forum/ForumThemes'
 import Articles from './components/public/articles/Articles'
 import Artworks from './components/public/artworks/Artworks'
-import Layout from './components/public/layout/Layout'
+import Layout from './components/layout/Layout.jsx'
 import Home from './components/public/home/Home'
 import Artwork from './components/public/artworks/Artwork'
 import Article from './components/public/articles/Article'
 import ForumThemes from './components/public/forum/ForumThemes'
 import { ROUTES } from './routes.js'
-import './App.css'
 import NotFound from './components/public/NotFound.jsx'
-import Profile from './components/public/profile/Profile.jsx'
-
+import Profile from './components/user/profile/Profile.jsx'
+import Auctions from './components/user/auctions/Auctions.jsx'
+import ProtectedRoute from './context/ProtectedRoute.jsx'
+import RoleRoute from './context/RoleRoute.jsx'
+import ArtistDashboard from './components/artist/dashboard/ArtistDashboard.jsx'
+import CreateArtwork from './components/artist/createArtwork/CreateArtwork.jsx'
+import CreateArticle from './components/artist/createArticle/CreateArticle.jsx'
+import './App.css'
+import CreateTheme from './components/artist/createTheme/CreateTheme.jsx'
 
 function App() {
 
@@ -29,11 +35,16 @@ function App() {
         {/* <Route path={ROUTES.FORUM_ID} element={<Forum />}/> */}
         <Route path={ROUTES.LOGIN} element={<Login />}/>
         <Route path={ROUTES.REGISTER} element={<Register />}/>
-        <Route path={ROUTES.PROFILE} element={<Profile/>}/>
-        {/* <Route path='artist/dashboard' element={}/>
-        <Route path='artist/artwork/create' element={}/>
-        <Route path='artist/article/create' element={}/>
-        <Route path='forum/topic/create' element={}/> */}
+        <Route element={<ProtectedRoute/>}>
+          <Route path={ROUTES.PROFILE} element={<Profile/>}/>
+          <Route path={ROUTES.AUCTIONS} element={<Auctions/>}/>
+        </Route>
+        <Route element={<RoleRoute role={'artist'}/>}>
+          <Route path='artist/dashboard' element={<ArtistDashboard/>}/>
+          <Route path='artist/artwork/create' element={<CreateArtwork/>}/>
+          <Route path='artist/article/create' element={<CreateArticle/>}/>
+          <Route path='forum/topic/create' element={<CreateTheme/>}/>
+        </Route>
       </Route>
       <Route path='*' element={<NotFound/>}/>
     </Routes>
