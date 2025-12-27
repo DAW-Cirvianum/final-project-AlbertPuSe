@@ -1,4 +1,4 @@
-export default function Article(){
+export default function ArticleCard(){
     return(
         <>
             <p>Article</p>
