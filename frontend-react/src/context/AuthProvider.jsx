@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import {AuthContext} from "../context/AuthContext";
-import { api } from "../api";
 import { ROUTES } from "../routes";
 import { Navigate } from "react-router-dom";
+import { me } from "../api/users.api";
 
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
@@ -11,7 +11,7 @@ export function AuthProvider({ children }) {
             async function fetchUser() {
                 const stored = localStorage.getItem("token");
                 if (stored){
-                    const user= await api.get("me")
+                    const user= await me()
                     setUser(user.data.user)
                 }; 
             }

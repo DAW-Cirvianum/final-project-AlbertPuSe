@@ -1,8 +1,8 @@
 import { useContext, useState } from "react"
 import { ROUTES } from "../../../routes"
-import { api } from "../../../api"
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContext"
+import {registerUser} from "../../../api/users.api";
 
 export default function Register(){
     const [form, setForm] = useState({ name: '', username: '', email: '', phone: '', password: '', password_confirmation: '' })
@@ -19,13 +19,14 @@ export default function Register(){
     const fetchUser = async () => {
       try {
         console.log(form);
-        const res = await api.post('register',{ 
-            "name":form.name, 
-            "username":form.username, 
-            "email":form.email, 
-            "password":form.password, 
-            "password_confirmation":form.password_confirmation
-        })
+        const user={ 
+                name:form.name, 
+                username:form.username, 
+                email:form.email, 
+                password:form.password, 
+                password_confirmation:form.password_confirmation
+            }
+        const res = await registerUser(user)
         console.log(res.data.user.name)
         setUser(res.data.user)
         localStorage.setItem("token",res.data.token);

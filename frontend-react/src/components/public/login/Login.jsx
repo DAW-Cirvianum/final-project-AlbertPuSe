@@ -1,8 +1,8 @@
 import { useContext, useState } from "react"
-import { api } from "../../../api"
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContext";
 import { ROUTES } from "../../../routes";
+import {loginUser} from "../../../api/users.api";
 
 export default function Login(){
     const [form, setForm] = useState({ login: '', password: '' })
@@ -17,7 +17,7 @@ export default function Login(){
     e.preventDefault()
     const fetchUsers = async () => {
       try {
-        const res = await api.post('/login',{ "login":form.login, "password":form.password});
+        const res = await loginUser(form.login,form.password);
         const token = res.data.token
         setUser(res.data.user)
         localStorage.setItem("token",token);

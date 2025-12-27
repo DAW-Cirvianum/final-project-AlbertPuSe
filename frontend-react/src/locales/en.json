@@ -12,6 +12,11 @@
     "Art":"Art",
     "art":"art",
     "Home":"Home",
-    "Forum":"Forum"
-
+    "Forum":"Forum",
+    "Artists":"Artists",
+    "artists":"artists",
+    "Profile":"Profile",
+    "profile":"profile",
+    "Add art":"Add art",
+    "Add article":"Add article"
 }

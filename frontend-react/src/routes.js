@@ -6,6 +6,7 @@ export const ROUTES={
     CONTACT:"/contact",
     ME:"/me",
     FORUM:"/forum",
+    ARTISTS:"/artists",
     FORUM_ID: (id)=>{`/forum/${id}`},
     ARTICLES:"/articles",
     ARTICLES_ID: (id)=>{`/articles/${id}`},
@@ -14,6 +15,6 @@ export const ROUTES={
     ARTWORKS_ID: (id)=>{`/artworks/${id}`},
     PROFILE_ID: (id)=>{`/profile/${id}`},
     AUCTIONS: "/auctions",
-    ARTIST_DASHBOARD: "/artist/dashboard"
+    ARTIST_PROFILE: "/artist"
 
 }

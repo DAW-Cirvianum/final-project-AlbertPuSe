@@ -1,5 +1,5 @@
 import axios from "axios"
-import { ROUTES } from "./routes";
+import { ROUTES } from "../routes";
 export const api= axios.create({
     baseURL:"http://localhost/api/",
     timeout:5000
