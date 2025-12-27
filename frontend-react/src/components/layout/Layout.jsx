@@ -1,4 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
+import { Container,Nav,Navbar, Form, Button } from "react-bootstrap"; 
 import { AuthContext } from "../../context/AuthContext";
 import { useContext } from "react";
 import { ROUTES } from "../../routes";
@@ -11,29 +12,29 @@ export default function Layout() {
 	function linksUsers(){
 		return !user? 
 		(<>
-			<Link to={ROUTES.LOGIN}>Login</Link>
-			<Link to={ROUTES.REGISTER}>Register</Link>
+			<Nav.Link as={Link} to={ROUTES.LOGIN}>Login</Nav.Link>
+			<Nav.Link as={Link} to={ROUTES.REGISTER}>Register</Nav.Link>
 		</>):
 		(<>
 			
 			{user.role === "user" && (
 				<>
-					<Link to={ROUTES.AUCTIONS}>{t("Auction")}</Link>
-					<Link to={ROUTES.PROFILE}>{user.username}</Link>
+					<Nav.Link as={Link} to={ROUTES.AUCTIONS}>{t("Auction")}</Nav.Link>
+					<Nav.Link as={Link} to={ROUTES.PROFILE}>{user.username}</Nav.Link>
 				</>
 			)}
 
 			{user.role === "artist" && (
 				<>
-					<Link to={ROUTES.ARTIST_DASHBOARD}>{user.username}</Link>
+					<Nav.Link as={Link} to={ROUTES.ARTIST_PROFILE}>{user.username}</Nav.Link>
 				</>
 			)}
 
 			{user.role === "admin" && (
-				<Link to={ROUTES.ADMIN_DASHBOARD}>{user.username}</Link>
+				<Nav.Link as={Link} to={ROUTES.ADMIN_DASHBOARD}>{user.username}</Nav.Link>
 			)}
 
-			<button onClick={logout}>Logout</button>
+			<Button variant='outline-secondary' onClick={logout}>Logout</Button>
 		</>)
 	}
 	
@@ -41,27 +42,35 @@ export default function Layout() {
 		i18n.changeLanguage(e.target.value)
 	}
   return (
-    <div>
-		<div>
-			<nav>
-				<Link to={ROUTES.HOME}>{t("Home")}</Link>
-				<Link to={ROUTES.ARTWORKS}>{t("Art")}</Link>	
-				<Link to={ROUTES.ARTICLES}>{t("Articles")}</Link>	
-				<Link to={ROUTES.FORUM}>{t("Forum")}</Link>	
-				{linksUsers()}
-				<select name="language" id="language" value={i18n.language} onChange={handleIdiom}>
-					<option value="en">EN</option>
-					<option value="ca">CA</option>
-					<option value="es">ES</option>
-				</select>	
-			</nav>
-		</div>
+    <>
+		<Navbar collapseOnSelect expand="sm" className="bg-body-tertiary" >
+			<Container fluid>
+					<Navbar.Brand as={Link} to={ROUTES.HOME}>NovArt</Navbar.Brand>
+					<Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+					<Navbar.Collapse id="responsive-navbar-nav">
+						<Nav className="me-auto">
+							<Nav.Link as={Link} to={ROUTES.ARTISTS}>{t("Artists")}</Nav.Link>
+							<Nav.Link as={Link} to={ROUTES.ARTWORKS}>{t("Art")}</Nav.Link>	
+							<Nav.Link as={Link} to={ROUTES.ARTICLES}>{t("Articles")}</Nav.Link>	
+							<Nav.Link as={Link} to={ROUTES.FORUM}>{t("Forum")}</Nav.Link>	
+							<Form.Select onChange={handleIdiom} defaultValue={i18n.language} size="sm">
+								<option value="en">EN</option>
+								<option value="ca">CA</option>
+								<option value="es">ES</option>
+							</Form.Select>
+						</Nav>
+						<Nav>
+							{linksUsers()}
+						</Nav>
+					</Navbar.Collapse>
+			</Container>	
+		</Navbar>		
 		<div>
 			<Outlet /> {/* Aquí es mostraran els continguts*/ }
 		</div>
 		<footer>
 			<p>Footer</p>
 		</footer>
-    </div>
+    </>
   );
 }
