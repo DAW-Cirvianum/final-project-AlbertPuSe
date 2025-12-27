@@ -47,15 +47,6 @@ class AuthController extends Controller
         ],200);
     }
 
-    public function profile(Request $request){
-        $user=$request->user();
-
-        return response()->json([
-            'message'=>'User profile info',
-            'user'=>$user
-        ],200);
-    }
-
     public function login(Request $request){
         $validator= Validator::make($request->all(),[
             'login'=>['required', 'string'],
@@ -105,20 +96,6 @@ class AuthController extends Controller
         return response()->json([
             'message'=>'Logout successfully',
         ],200);
-    }
-
-    public function modifyRole(Request $request, User $user){
-
-        $request->validate([
-            'role' => 'required|in:user,artist,admin'
-        ]);
-
-        $user->role = $request->role;
-        $user->save();
-
-        return response()->json([
-            'message' => 'Rol actualizado correctamente'
-        ]);
     }
 
     public function me(Request $request){

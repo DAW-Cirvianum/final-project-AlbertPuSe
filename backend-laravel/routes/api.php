@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -10,4 +11,6 @@ Route::post('register',[AuthController::class,'store']);
 
 Route::post('login',[AuthController::class,'login']);
 
-Route::patch('users/{user}/role',[AuthController::class,'modifyRole']);
+Route::patch('users/{user}/role',[UserController::class,'modifyRole']);
+
+Route::get('artists',[UserController::class,'artists']);
