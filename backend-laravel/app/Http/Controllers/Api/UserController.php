@@ -33,7 +33,21 @@ class UserController extends Controller
 
     public function artists(){
         $artists= User::where('role','artist')
-        ->select('id','name','username','email')
+        ->select('id','name','username','description','email')
+        ->paginate(6);
+        
+        return response()->json([
+            'status'=>true,
+            'data'=>$artists
+        ],200);
+    }
+
+    public function latestArtists(){
+        $artists= User::where('role','artist')
+        ->whereHas('artworks')
+        ->with('artworks')
+        ->latest()
+        ->take(6)
         ->get();
         
         return response()->json([
@@ -41,4 +55,5 @@ class UserController extends Controller
             'artists'=>$artists
         ],200);
     }
+
 }

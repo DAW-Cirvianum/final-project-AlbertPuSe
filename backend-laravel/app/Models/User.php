@@ -24,6 +24,7 @@ class User extends Authenticatable
         'username',
         'role',
         'email',
+        'description',
         'password',
     ];
 
@@ -48,5 +49,8 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function artworks(){
+        return $this->hasMany(Artwork::class);
     }
 }

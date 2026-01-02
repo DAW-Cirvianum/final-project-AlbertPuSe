@@ -16,10 +16,18 @@ class Artwork extends Model
         'description',
         'image',
         'price',
-        'user_id'
+        'user_id',
+        'art_type_id'
     ];
 
     public function user(){
         return $this->belongsTo(User::class);
     }
+    public function tags(){
+        return $this->belongsToMany(Tag::class);
+    }
+    public function artType(){
+        return $this->belongsTo((ArtType::class));
+    }
+    
 }
