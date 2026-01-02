@@ -8,6 +8,7 @@ export default function Artists({data}){
         if(!data)return <p>{t('Loading')}</p>
         return data.map( a=> <ArtistCard key={a.id} artist={a}/>)
     }
+    
     return(
         <>
             <Row xs={1} md={2} className="g-4">{showArtists()}</Row>

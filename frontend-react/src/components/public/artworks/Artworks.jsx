@@ -8,6 +8,7 @@ export default function Artworks({data}){
         if(!data)return <p>{t('Loading')}</p>
         return data.map( a=> <ArtworkCard key={a.id} artwork={a}/>)
     }
+    
     return(
         <>
             <Row xs={1} md={2} lg={3} className="g-4">{showArtworks()}</Row>

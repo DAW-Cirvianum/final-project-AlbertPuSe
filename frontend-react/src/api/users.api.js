@@ -14,8 +14,8 @@ export async function registerUser(user){
             })
 }
 
-export async function artistsList(){
-    return  api.get('artists')
+export async function artistsList(page){
+    return  api.get(`artists?page=${page}`)
 }
 
 export async function latestArtists(){

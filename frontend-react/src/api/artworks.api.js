@@ -5,7 +5,7 @@ export async function myArtworks(){
 }
 
 export async function artworksList(page){
-    return api.get(`artworks?${page}`)
+    return api.get(`artworks?page=${page}`)
 }
 
 export async function latestArtworks(){
