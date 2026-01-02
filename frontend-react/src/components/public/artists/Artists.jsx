@@ -1,23 +1,12 @@
-import { useEffect, useState } from "react"
-import { useTranslation } from "react-i18next";
-import { artistsList } from "../../../api/users.api";
 import ArtistCard from "./ArtistCard";
 import { Row } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
-export default function Artists(){
-    const [artists, setArtists]= useState(null)
+export default function Artists({data}){
     const {t}=useTranslation();
-    useEffect(()=>{
-        async function fetchArtists(){
-            const artists= await artistsList();
-            setArtists(artists.data.artists)
-        }
-        fetchArtists()
-    },[]);
-    
     function showArtists(){
-        if(!artists)return <p>Loading</p>
-        return artists.map( a=> <ArtistCard key={a.id} artist={a}/>)
+        if(!data)return <p>{t('Loading')}</p>
+        return data.map( a=> <ArtistCard key={a.id} artist={a}/>)
     }
     return(
         <>

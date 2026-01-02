@@ -1,8 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import Login from './components/public/login/Login'
 import Register from './components/public/register/Register'
-import Articles from './components/public/articles/Articles'
-import Artworks from './components/public/artworks/Artworks'
 import Layout from './components/layout/Layout.jsx'
 import Home from './components/public/home/Home'
 import ForumThemes from './components/public/forum/ForumThemes'
@@ -20,6 +18,8 @@ import ArtistsPage from './components/public/artists/ArtistsPage.jsx'
 import LayoutArtist from './components/layout/LayoutArtist.jsx'
 import MyArtworks from './components/artist/myArtworks/MyArtworks.jsx'
 import MyArticles from './components/artist/myArticles/MyArticles.jsx'
+import ArtworksPage from './components/public/artworks/ArtworksPage.jsx'
+import ArticlesPage from './components/public/articles/ArticlesPage.jsx'
 
 function App() {
 
@@ -28,9 +28,9 @@ function App() {
       <Route element={<Layout/>}>
         <Route path={ROUTES.HOME} element={<Home/>}/>
         <Route path={ROUTES.ARTISTS} element={<ArtistsPage />}/>
-        <Route path={ROUTES.ARTWORKS} element={<Artworks />}/>
+        <Route path={ROUTES.ARTWORKS} element={<ArtworksPage />}/>
         {/* <Route path={ROUTES.ARTWORKS_ID} element={<Artwork />}/> */}
-        <Route path={ROUTES.ARTICLES} element={<Articles />}/>
+        <Route path={ROUTES.ARTICLES} element={<ArticlesPage />}/>
         {/* <Route path={ROUTES.ARTICLES_ID} element={<Article />}/> */}
         <Route path={ROUTES.FORUM} element={<ForumThemes />}/>
         {/* <Route path={ROUTES.FORUM_ID} element={<Forum />}/> */}
