@@ -1,5 +1,7 @@
 {
-    "welcome": "Welcome to React + Vite",
+    "See more":"Ver mas",
+    "See profile":"Ver perfil",
+    "Loading":"Cargando",
     "login": "Log in",
     "logout": "Log out",
     "user": {
@@ -9,14 +11,38 @@
     "auction": "subasta",
     "Articles": "Artículos",
     "articles": "artículos",
-    "Art":"Arte",
-    "art":"arte",
+    "Artworks":"Obras",
+    "artworks":"obras",
     "Home":"Inicio",
     "Forum":"Foro",
     "Artists":"Artistas",
     "artists":"artistas",
+    "Most recent artists":"Artistas más recientes",
+    "Most recent artworks":"Obras más recientes",
     "Profile":"Perfil",
     "profile":"perfil",
     "Add art":"Añadir arte",
-    "Add article":"Añadir artículo"
+    "Add article":"Añadir artículo",
+    "Select a type":"Seleccione un tipo",
+    "artTypesTL":{
+        "Painting":"Pintura",
+        "Illustration":"Ilustración",
+        "Sculpture":"Escultura",
+        "Oil painting":"Pintura al óleo",
+        "Woodcraft":"Artesania en madera",
+        "Metal art":"Arte en metal",
+        "Textile art":"Arte textil",
+        "Photograph":"Fotografía"
+    },
+    "Select a tag":"Seleccione una etiqueta",
+    "tagsTL":{
+        "Abstract":"Abstracto",
+        "Realism":"Realismo",
+        "Fantasy":"Fantasía",
+        "Sci-fi":"Ciencia Ficción",
+        "Portrait":"Retrato",
+        "Nature":"Naturaleza"
+    },
+    "Create artwork":"Crear obra",
+    "Cancel":"Cancelar"
 }

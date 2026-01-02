@@ -1,5 +1,7 @@
 {
-    "welcome": "Welcome to React + Vite",
+    "See more":"See more",
+    "See profile":"See profile",
+    "Loading":"Loading",
     "login": "Log in",
     "logout": "Log out",
     "user": {
@@ -9,14 +11,38 @@
     "auction":"auction",
     "Articles": "Articles",
     "articles": "articles",
-    "Art":"Art",
-    "art":"art",
+    "Artworks":"Artowrks",
+    "artworks":"artworks",
     "Home":"Home",
     "Forum":"Forum",
     "Artists":"Artists",
     "artists":"artists",
+    "Most recent artists":"Most recent artists",
+    "Most recent artworks":"Most recent artworks",
     "Profile":"Profile",
     "profile":"profile",
     "Add art":"Add art",
-    "Add article":"Add article"
+    "Add article":"Add article",
+    "Select a type":"Select a type",
+    "artTypesTL":{
+        "Painting":"Painting",
+        "Illustration":"Illustration",
+        "Sculpture":"Sculpture",
+        "Oil painting":"Oil painting",
+        "Woodcraft":"Woodcraft",
+        "Metal art":"Metal art",
+        "Textile art":"Textile art",
+        "Photograph":"Photograph"
+    },
+    "Select a tag":"Select a tag",
+    "tagsTL":{
+        "Abstract":"Abstract",
+        "Realism":"Realism",
+        "Fantasy":"Fantasy",
+        "Sci-fi":"Sci-fi",
+        "Portrait":"Portrait",
+        "Nature":"Nature"
+    },
+    "Create artwork":"Create artwork",
+    "Cancel":"Cancel"
 }

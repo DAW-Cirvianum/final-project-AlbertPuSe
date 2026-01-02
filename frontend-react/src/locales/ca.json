@@ -1,5 +1,7 @@
 {
-    "welcome": "Benvingut a React + Vite",
+    "See more":"Veure més",
+    "See profile":"Veure perfil",
+    "Loading":"Carregant",
     "login": "Inicia sessió",
     "logout": "Tanca sessió",
     "user": {
@@ -9,14 +11,38 @@
     "auction":"subhasta",
     "Articles": "Articles",
     "articles": "articles",
-    "Art":"Art",
-    "art":"art",
+    "Artworks":"Obres",
+    "artworks":"obres",
     "Home":"Inici",
     "Forum":"Fòrum",
     "Artists":"Artistes",
     "artists":"artistes",
+    "Most recent artists":"Artistes més recents",
+    "Most recent artworks":"Obres més recents",
     "Profile":"Perfil",
     "profile":"perfil",
     "Add art":"Afegir art",
-    "Add article":"Afegir article"
+    "Add article":"Afegir article",
+    "Select a type":"Seleccioneu un tipus",
+    "artTypesTL":{
+        "Painting":"Pintura",
+        "Illustration":"Ilustració",
+        "Sculpture":"Escultura",
+        "Oil painting":"Pintura a l'oli",
+        "Woodcraft":"Artesania en fusta",
+        "Metal art":"Art en metall",
+        "Textile art":"Art tèxtil",
+        "Photograph":"Fotografia"
+    },
+    "Select a tag":"Seleccioneu una etiqueta",
+    "tagsTL":{
+        "Abstract":"Abstract",
+        "Realism":"Realisme",
+        "Fantasy":"Fantasia",
+        "Sci-fi":"Ciència-ficció",
+        "Portrait":"Retrat",
+        "Nature":"Natura"
+    },
+    "Create artwork":"Crear obra",
+    "Cancel":"cancel·lar"
 }
