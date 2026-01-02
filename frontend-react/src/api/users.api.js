@@ -18,6 +18,10 @@ export async function artistsList(){
     return  api.get('artists')
 }
 
+export async function latestArtists(){
+    return api.get('artists/latest')
+}
+
 export async function me(){
    return  api.get('me')
 }
