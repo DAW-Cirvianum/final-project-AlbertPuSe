@@ -7,13 +7,13 @@ export const ROUTES={
     ME:"/me",
     FORUM:"/forum",
     ARTISTS:"/artists",
-    FORUM_ID: (id)=>{`/forum/${id}`},
+    FORUM_ID:'/forum/:forumId',
     ARTICLES:"/articles",
-    ARTICLES_ID: (id)=>{`/articles/${id}`},
+    ARTICLES_ID: (id)=>{`/articles/:${id}`},
     PROFILE:"/profile",
     ARTWORKS: "/artworks",
-    ARTWORKS_ID: (id)=>{`/artworks/${id}`},
-    PROFILE_ID: (id)=>{`/profile/${id}`},
+    ARTWORKS_ID: (id)=>{`/artworks/:${id}`},
+    PROFILE_ID: (id)=>{`/profile/:${id}`},
     AUCTIONS: "/auctions",
     ARTIST_PROFILE: "/artist"
 
