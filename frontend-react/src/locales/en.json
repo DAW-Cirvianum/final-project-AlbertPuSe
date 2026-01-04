@@ -9,6 +9,8 @@
     },
     "Auction":"Auction",
     "auction":"auction",
+    "Auctions": "Auctions",
+    "auctions": "auctions",
     "Articles": "Articles",
     "articles": "articles",
     "Artworks":"Artowrks",
@@ -23,6 +25,8 @@
     "profile":"profile",
     "Add art":"Add art",
     "Add article":"Add article",
+    "My artworks":"My artworks",
+    "My articles":"My articles",
     "Select a type":"Select a type",
     "artTypesTL":{
         "Painting":"Painting",
@@ -46,5 +50,6 @@
     "Create artwork":"Create artwork",
     "Cancel":"Cancel",
     "Next":"Next",
-    "Previous":"Previous"
+    "Previous":"Previous",
+    "Back":"Back"
 }

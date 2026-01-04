@@ -9,6 +9,8 @@
     },
     "Auction": "Subasta",
     "auction": "subasta",
+    "Auctions": "Subastas",
+    "auctions": "subastas",
     "Articles": "Artículos",
     "articles": "artículos",
     "Artworks":"Obras",
@@ -23,6 +25,8 @@
     "profile":"perfil",
     "Add art":"Añadir arte",
     "Add article":"Añadir artículo",
+    "My artworks":"Mis obras",
+    "My articles":"Mis articulos",
     "Select a type":"Seleccione un tipo",
     "artTypesTL":{
         "Painting":"Pintura",
@@ -46,5 +50,6 @@
     "Create artwork":"Crear obra",
     "Cancel":"Cancelar",
     "Next":"Siguiente",
-    "Previous":"Anterior"
+    "Previous":"Anterior",
+    "Back":"Volver"
 }

@@ -2,9 +2,8 @@ import { useState } from "react"
 import { Button, Offcanvas, Nav } from "react-bootstrap"
 import { Link, Outlet } from "react-router-dom"
 import { useTranslation } from "react-i18next";
-import { ROUTES } from "../../routes";
 
-export default function LayoutArtist(){
+export default function LayoutArtistDashboard(){
     const [show, setShow]=useState(false)
     const { t } = useTranslation();
 
@@ -24,8 +23,8 @@ export default function LayoutArtist(){
                 <Offcanvas.Body>
                     <Nav className="flex-column">
                         <Nav.Link as={Link} to={'dashboard'} onClick={handleClose} >{t('Profile')}</Nav.Link>
-                        <Nav.Link as={Link} to={'artwork'} onClick={handleClose} >{t('Art')}</Nav.Link>
-                        <Nav.Link as={Link} to={'article'} onClick={handleClose} >{t('Article')}</Nav.Link>
+                        <Nav.Link as={Link} to={'artwork'} onClick={handleClose} >{t('Artworks')}</Nav.Link>
+                        <Nav.Link as={Link} to={'article'} onClick={handleClose} >{t('Articles')}</Nav.Link>
                         <Nav.Link as={Link} to={'artwork/create'} onClick={handleClose} >{t('Add art')}</Nav.Link>
                         <Nav.Link as={Link} to={'article/create'} onClick={handleClose}>{t('Add article')}</Nav.Link>
                     </Nav>
@@ -35,8 +34,8 @@ export default function LayoutArtist(){
             <aside className="d-none d-sm-block" style={{ width: '200px', position: 'fixed', height: '100vh', backgroundColor: '#f8f9fa' }}>
                 <Nav className="flex-column p-2">
                     <Nav.Link as={Link} to={'dashboard'} >{t('Profile')}</Nav.Link>
-                    <Nav.Link as={Link} to={'artwork'} >{t('Art')}</Nav.Link>
-                    <Nav.Link as={Link} to={'article'} >{t('Article')}</Nav.Link>
+                    <Nav.Link as={Link} to={'artwork'} >{t('Artworks')}</Nav.Link>
+                    <Nav.Link as={Link} to={'article'} >{t('Articles')}</Nav.Link>
                     <Nav.Link as={Link} to={'artwork/create'} >{t('Add art')}</Nav.Link>
                     <Nav.Link as={Link} to={'article/create'} >{t('Add article')}</Nav.Link>
                 </Nav>

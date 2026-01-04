@@ -2,13 +2,15 @@
     "See more":"Veure més",
     "See profile":"Veure perfil",
     "Loading":"Carregant",
-    "login": "Inicia sessió",
-    "logout": "Tanca sessió",
+    "login": "Iniciar sessió",
+    "logout": "Tancar sessió",
     "user": {
         "name": "Nom d'usuari"
     },
     "Auction":"Subhasta",
     "auction":"subhasta",
+    "Auctions": "Subhastes",
+    "auctions": "subhastes",
     "Articles": "Articles",
     "articles": "articles",
     "Artworks":"Obres",
@@ -23,6 +25,8 @@
     "profile":"perfil",
     "Add art":"Afegir art",
     "Add article":"Afegir article",
+    "My artworks":"Les meves obres",
+    "My articles":"Els meus articles",
     "Select a type":"Seleccioneu un tipus",
     "artTypesTL":{
         "Painting":"Pintura",
@@ -48,5 +52,6 @@
     "Page":"Pagina",
     "of":"de",
     "Next":"Següent",
-    "Previous":"Anterior"
+    "Previous":"Anterior",
+    "Back":"Tornar"
 }

@@ -7,7 +7,7 @@ export default function ArtworksPage(){
     const {t}=useTranslation();
     return(
         <>
-            <h1>{t('Artowrks')}</h1>
+            <h1>{t('Artworks')}</h1>
             <Pagination request={artworksList}>
             {(data)=><Artworks data={data}/>}
             </Pagination>

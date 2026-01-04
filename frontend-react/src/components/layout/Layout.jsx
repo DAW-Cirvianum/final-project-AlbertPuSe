@@ -16,12 +16,8 @@ export default function Layout() {
 			<Nav.Link as={Link} to={ROUTES.REGISTER}>Register</Nav.Link>
 		</>):
 		(<>
-			
 			{user.role === "user" && (
-				<>
-					<Nav.Link as={Link} to={ROUTES.AUCTIONS}>{t("Auction")}</Nav.Link>
 					<Nav.Link as={Link} to={ROUTES.PROFILE}>{user.username}</Nav.Link>
-				</>
 			)}
 
 			{user.role === "artist" && (
@@ -50,9 +46,10 @@ export default function Layout() {
 					<Navbar.Collapse id="responsive-navbar-nav">
 						<Nav className="me-auto">
 							<Nav.Link as={Link} to={ROUTES.ARTISTS}>{t("Artists")}</Nav.Link>
-							<Nav.Link as={Link} to={ROUTES.ARTWORKS}>{t("Art")}</Nav.Link>	
+							<Nav.Link as={Link} to={ROUTES.ARTWORKS}>{t("Artworks")}</Nav.Link>	
 							<Nav.Link as={Link} to={ROUTES.ARTICLES}>{t("Articles")}</Nav.Link>	
 							<Nav.Link as={Link} to={ROUTES.FORUM}>{t("Forum")}</Nav.Link>	
+							{user?.role === "user" && (<Nav.Link as={Link} to={ROUTES.AUCTIONS}>{t("Auction")}</Nav.Link>)}
 							<Form.Select onChange={handleIdiom} defaultValue={i18n.language} size="sm">
 								<option value="en">EN</option>
 								<option value="ca">CA</option>

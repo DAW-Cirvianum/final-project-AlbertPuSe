@@ -5,8 +5,8 @@ import { useTranslation } from 'react-i18next';
 export default function ArtworkCard({artwork}){
     const {t}=useTranslation();
     return(
-        <Card  bg={'secondary'}>
-            <Card.Img variant='top' src={artwork.image} alt={artwork.title}/>
+        <Card className='w-50' bg={'secondary'}>
+            <Card.Img  variant='top' src={artwork.image} alt={artwork.title} fluid/>
                 <Card.Body>
                     <Card.Title>{artwork.title}</Card.Title>
                     <Card.Text className='h-25 overflow-hidden'>

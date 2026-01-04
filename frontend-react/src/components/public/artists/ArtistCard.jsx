@@ -8,7 +8,7 @@ export default function ArtistCard({artist}){
         <Card className='mb-3' bg={'secondary'}>
             <Row className='g-0'>
                 <Col md={4}>
-                    <Card.Img src={artist.image} alt={artist.name}/>
+                    <Card.Img src={artist.image} rounded alt={artist.name} fluid/>
                 </Col>
                 <Col>
                     <Card.Body>
