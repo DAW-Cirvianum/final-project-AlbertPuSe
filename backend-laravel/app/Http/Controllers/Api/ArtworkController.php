@@ -15,13 +15,14 @@ class ArtworkController extends Controller
 {
     public function myArtworks(){
         $user=Auth::user();
-        $artworks=Artwork::where('user_id',$user->id)->get();
+        $artworks=Artwork::where('user_id',$user->id)->paginate(10);
 
         return response()->json([
             'status'=>true,
-            'artworks'=>$artworks
+            'data'=>$artworks
         ],200);
     }
+
     public function artworksList(){
         $artworks=Artwork::paginate(10);
 

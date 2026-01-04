@@ -31,7 +31,7 @@ class UserController extends Controller
         ],200);
     }
 
-    public function artists(){
+    public function artistsList(){
         $artists= User::where('role','artist')
         ->select('id','name','username','description','email')
         ->paginate(6);
