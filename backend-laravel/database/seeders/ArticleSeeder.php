@@ -14,10 +14,6 @@ class ArticleSeeder extends Seeder
      */
     public function run(): void
     {
-        Article::factory(20)->create()->each(function($article){
-            ArticleImage::factory(rand(1,4))->create([
-                'article_id'=>$article->id
-            ]);
-        });
+        Article::factory(20)->create();
     }
 }

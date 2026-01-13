@@ -30,4 +30,5 @@ class Artwork extends Model
         return $this->belongsTo((ArtType::class));
     }
     
+    
 }

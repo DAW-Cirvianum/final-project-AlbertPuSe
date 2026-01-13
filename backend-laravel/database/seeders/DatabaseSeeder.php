@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             ArticleSeeder::class,
             ArtworkSeeder::class,
             ForumTopicSeeder::class,
+            AuctionSeeder::class,
         ]);
     }
 }

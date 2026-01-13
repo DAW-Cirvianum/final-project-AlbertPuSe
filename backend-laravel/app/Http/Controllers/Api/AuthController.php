@@ -25,14 +25,13 @@ class AuthController extends Controller
                 'message'=>$validator->errors(),
             ],422);
         }
-        $data= $validator->validated();
 
         $user= User::create([
-            'name'=>$data['name'],
-            'username'=>$data['username'],
+            'name'=>$request->name,
+            'username'=>$request->username,
             'role'=>'user',
-            'email'=>$data['email'],
-            'password'=>Hash::make($data['password']),
+            'email'=>$request->email,
+            'password'=>Hash::make($request->password),
         ]);
 
         $token = $user->createToken('api-token')->plainTextToken;

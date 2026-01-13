@@ -21,6 +21,7 @@
     "artists":"artists",
     "Most recent artists":"Most recent artists",
     "Most recent artworks":"Most recent artworks",
+    "Recent artworks by the artist":"Recent artworks by the artist",
     "Profile":"Profile",
     "profile":"profile",
     "Add art":"Add art",
@@ -47,9 +48,28 @@
         "Portrait":"Portrait",
         "Nature":"Nature"
     },
+    "Username or email":"Username or email",
+    "Password":"Password",
+    "Send":"Send",
     "Create artwork":"Create artwork",
+    "Create article":"Create article",
     "Cancel":"Cancel",
+    "Confirm":"Confirm",
+    "Delete":"Delete",
+    "Modify":"Modify",
+    "Page":"Page",
+    "of":"of",
     "Next":"Next",
     "Previous":"Previous",
-    "Back":"Back"
+    "Back":"Back",
+    "Price":"Price",
+    "About artist":"About artist",
+    "Other works by the author":"Other works by the author",
+    "Make an offer":"Make an offer",
+    "Artists options":"Artists options",
+    "Artists menu":"Artists menu",
+    "labelArtwork":{
+
+    },
+    "There is no content at the moment":"There is no content at the moment"
 }

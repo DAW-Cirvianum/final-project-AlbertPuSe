@@ -1,9 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Row, Col, Button } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 export default function ArtistCard({artist}){
     const {t}=useTranslation();
+
     return(
         <Card className='mb-3' bg={'secondary'}>
             <Row className='g-0'>
@@ -16,7 +18,7 @@ export default function ArtistCard({artist}){
                         <Card.Text>
                             {artist.description}
                         </Card.Text>
-                        <Button variant="primary">{t('See profile')}</Button>
+                        <Button as={Link} to={`/artists/${artist.id}`} variant="primary">{t('See profile')}</Button>
                     </Card.Body>
                 </Col>
             </Row>

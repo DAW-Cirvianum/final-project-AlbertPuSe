@@ -56,4 +56,20 @@ class UserController extends Controller
         ],200);
     }
 
+    public function artistById($id){
+        $artist= User::with('artworks','articles.images')->find($id);
+        
+        if(is_null($artist)){
+            return response()->json([
+                'status'=>false,
+                'notFound'=>'Artist not found'
+            ],404);
+        }
+
+        return response()->json([
+            'status'=>true,
+            'artist'=>$artist,
+        ],200);
+    }
+    
 }

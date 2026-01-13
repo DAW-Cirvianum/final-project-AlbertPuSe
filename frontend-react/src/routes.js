@@ -6,15 +6,17 @@ export const ROUTES={
     CONTACT:"/contact",
     ME:"/me",
     FORUM:"/forum",
-    ARTISTS:"/artists",
     FORUM_ID:'/forum/:forumId',
+    ARTISTS:"/artists",
+    ARTISTS_ID:"/artists/:artistId",
     ARTICLES:"/articles",
-    ARTICLES_ID: (id)=>{`/articles/:${id}`},
+    ARTICLES_ID:"/articles/:articleId",
     PROFILE:"/profile",
     ARTWORKS: "/artworks",
-    ARTWORKS_ID: (id)=>{`/artworks/:${id}`},
-    PROFILE_ID: (id)=>{`/profile/:${id}`},
+    ARTWORKS_ID: "/artworks/:artworkId",
+    PROFILE_ID: "/profile/:userId",
     AUCTIONS: "/auctions",
+    AUCTIONS_ID: "/auctions/:auctionId",
     ARTIST_PROFILE: "/artist"
 
 }

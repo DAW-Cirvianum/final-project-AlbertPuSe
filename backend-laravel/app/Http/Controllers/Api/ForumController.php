@@ -18,7 +18,7 @@ class ForumController extends Controller
     }
 
     public function forumTopic($id){
-        $topic= ForumTopic::with('user','images','comments')->find($id);
+        $topic= ForumTopic::with('user','images','comments.user')->find($id);
         
         if(is_null($topic)){
             return response()->json([

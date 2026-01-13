@@ -1,31 +1,34 @@
 import { useEffect, useState } from "react";
-import { Form } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { artTypes } from "../../../api/artworks.api";
 
-export default function SelectType(){
-    const [types, setTypes]= useState();
+export default function SelectType({valueType, changeFunciton}){
+    const [types, setTypes]= useState(null);
     const {t}=useTranslation();
 
     useEffect(()=>{
         async function fetchTypes(){
-            const types= await artTypes();
-            setTypes(types.data.artTypes);
+            const typesData= await artTypes();
+            setTypes(typesData.data.artTypes);
         }
         fetchTypes()
     },[])
 
     function fillSelect(){
         if(!types) return <option disabled>Loading types</option>
-        return types.map(type=>{return <option value={type.id}>{t(`artTypesTL.${type.name}`)}</option>})
+        return types.map(type=>{return <option key={type.id} value={type.id}>{t(`artTypesTL.${type.name}`)}</option>})
     }
+
     return(
-        <Form.Group className="mt-3">
-            <Form.Label>{t('Label type artwork')}</Form.Label>
-            <Form.Select name="type" required>
-                    <option selected disabled>{t('Select a type')}</option>
+        <div className="mt-3">
+            <label className="form-label">{t('Label type artwork')}</label>
+            <select value={valueType} className="form-control" name="type" required onChange={changeFunciton}>
+                    <option value='' disabled >{t('Select a type')}</option>
                     {fillSelect()}
-            </Form.Select>
-        </Form.Group>
+            </select>
+            <div className="invalid-feedback">
+                {t('Invalid type artwork')}
+            </div>
+        </div>
     )
 }

@@ -3,11 +3,14 @@ import { ROUTES } from "../../../routes"
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContext"
 import {registerUser} from "../../../api/users.api";
+import { useTranslation } from "react-i18next";
 
 export default function Register(){
-    const [form, setForm] = useState({ name: '', username: '', email: '', phone: '', password: '', password_confirmation: '' })
+    const [form, setForm] = useState({ name: '', username: '', email: '', password: '', password_confirmation: '' })
     const [error, setError]= useState(null)
     const {setUser}=useContext(AuthContext)
+    const [validate, setValidated]=useState(false);
+    const {t}=useTranslation()
     const navigate = useNavigate();
 
     const handleChange = e => {
@@ -16,6 +19,15 @@ export default function Register(){
 
     const handleSubmit = e => {
     e.preventDefault()
+
+     const formElement = e.currentTarget;
+
+        if (!formElement.checkValidity()) {
+            e.stopPropagation();
+            setValidated(true);
+            return;
+        }
+
     const fetchUser = async () => {
       try {
         console.log(form);
@@ -47,63 +59,85 @@ export default function Register(){
 
     return(
         <>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="name">Nom</label>
-                <input 
-                    name="name" 
-                    type="text"
-                    value={form.name} 
-                    onChange={handleChange} 
-                    placeholder="Nom complet" 
-                    required
-                />
-                <label htmlFor="username"> Nom d'usuari</label>
-                <input 
-                    name="username" 
-                    type="text"
-                    value={form.username} 
-                    onChange={handleChange} 
-                    placeholder="Nom d'usuari"
-                    required 
-                />
-                <label htmlFor="email">Email</label>
-                <input 
-                    name="email" 
-                    type="text"
-                    value={form.email} 
-                    onChange={handleChange} 
-                    placeholder="Email" 
-                    required
-                />
-                <label htmlFor="phone">Telefon</label>
-                <input 
-                    name="phone" 
-                    type="text"
-                    value={form.phone} 
-                    onChange={handleChange} 
-                    placeholder="Telefon" 
-                />
-                <label htmlFor="password">Contrasenya</label>
-                <input 
-                    name="password" 
-                    type="password"
-                    value={form.password} 
-                    onChange={handleChange} 
-                    placeholder="Contrasenya" 
-                    required
-                />
-                <label htmlFor="password_confirmation">Confirmar contrasenya</label>
-                <input 
-                    name="password_confirmation" 
-                    type="password"
-                    value={form.password_confirmation} 
-                    onChange={handleChange} 
-                    placeholder="Repeteix la contrasenya" 
-                    required
-                />
-                {showError()}
-                <button>Enviar</button>
-            </form>
+            <div className="d-flex justify-content-center">
+                <div className="flex-column w-25">
+                <h1>Register</h1>
+                    <form noValidate className={validate ? 'was-validated p-4' : 'p-4'} onSubmit={handleSubmit}>
+                        <div>
+                        <label className="form-label" htmlFor="name">Nom</label>
+                        <input className="form-control"
+                            name="name" 
+                            type="text"
+                            value={form.name} 
+                            onChange={handleChange} 
+                            placeholder="Nom complet" 
+                            required
+                        />
+                        <div className="invalid-feedback">
+                            <p>{t('Invalid name')}</p>
+                        </div>
+                        </div>
+                        <div>
+                        <label className="form-label" htmlFor="username"> Nom d'usuari</label>
+                        <input className="form-control"
+                            name="username" 
+                            type="text"
+                            value={form.username} 
+                            onChange={handleChange} 
+                            placeholder="Nom d'usuari"
+                            required 
+                        />
+                        <div className="invalid-feedback">
+                            <p>{t('Invalid username')}</p>
+                        </div>
+                        </div>
+                        <div>
+                        <label className="form-label" htmlFor="email">Email</label>
+                        <input className="form-control"
+                            name="email" 
+                            type="text"
+                            value={form.email} 
+                            onChange={handleChange} 
+                            placeholder="Email" 
+                            required
+                        />
+                        <div className="invalid-feedback">
+                            <p>{t('Invalid email')}</p>
+                        </div>
+                        </div>
+                        <div>
+                        <label className="form-label" htmlFor="password">Contrasenya</label>
+                        <input className="form-control"
+                            name="password" 
+                            type="password"
+                            value={form.password} 
+                            onChange={handleChange} 
+                            placeholder="Contrasenya" 
+                            required
+                        />
+                        <div className="invalid-feedback">
+                            <p>{t('Invalid password')}</p>
+                        </div>
+                        </div>
+                        <div>
+                        <label className="form-label" htmlFor="password_confirmation">Confirmar contrasenya</label>
+                        <input className="form-control"
+                            name="password_confirmation" 
+                            type="password"
+                            value={form.password_confirmation} 
+                            onChange={handleChange} 
+                            placeholder="Repeteix la contrasenya" 
+                            required
+                        />
+                        <div className="invalid-feedback">
+                            <p>{t('Invalid password_confirmation')}</p>
+                        </div>
+                        </div>
+                        {showError()}
+                        <button className="btn btn-primary mt-3">{t('Send')}</button>
+                    </form>
+                </div>
+            </div>
         </>
     )
 }

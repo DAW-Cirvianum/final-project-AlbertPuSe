@@ -21,6 +21,7 @@
     "artists":"artistes",
     "Most recent artists":"Artistes més recents",
     "Most recent artworks":"Obres més recents",
+    "Recent artworks by the artist":"Obres recents de l'artista",
     "Profile":"Perfil",
     "profile":"perfil",
     "Add art":"Afegir art",
@@ -47,11 +48,28 @@
         "Portrait":"Retrat",
         "Nature":"Natura"
     },
+    "Username or email":"Nom d'usuari o email",
+    "Password":"Contrasenya",
+    "Send":"Enviar",
     "Create artwork":"Crear obra",
-    "Cancel":"cancel·lar",
+    "Create article":"Crear article",
+    "Cancel":"Cancel·lar",
+    "Confirm":"Confirmar",
+    "Delete":"Eliminar",
+    "Modify":"Modificar",
     "Page":"Pagina",
     "of":"de",
     "Next":"Següent",
     "Previous":"Anterior",
-    "Back":"Tornar"
+    "Back":"Tornar",
+    "Price":"Preu",
+    "About artist":"Sobre l'artista",
+    "Other works by the author":"Altres obres de l'autor",
+    "Make an offer":"Fer oferta",
+    "Artists options":"Opciosn d'artistes",
+    "Artists menu":"Menú d'artistes",
+    "labelArtwork":{
+
+    },
+    "There is no content at the moment":"No hi ha contingut de moment"
 }

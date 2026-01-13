@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('article_images', function (Blueprint $table) {
+        Schema::create('auctions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('article_id')->constrained()->onDelete('cascade');
-            $table->string('image');
+            $table->decimal('start_price',10,2);
+            $table->timestamp('starts_at');
+            $table->timestamp('ends_at');
+            $table->enum('status',['active','finished'])->default('active');
+            $table->foreignId('artwork_id')->constrained()->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('article_images');
+        Schema::dropIfExists('auctions');
     }
 };

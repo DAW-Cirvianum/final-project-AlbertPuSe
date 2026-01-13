@@ -9,7 +9,7 @@ export default function Pagination({request ,children}){
     const {t}=useTranslation();
     useEffect(()=>{
         async function fetchArtists(){
-            console.log('Canviant'+page)
+            // console.log('Canviant'+page)
             const res= await request(page);
             setData(res.data.data.data);
             setPagination({
@@ -23,6 +23,7 @@ export default function Pagination({request ,children}){
     },[page]);
 
     if(!pagination) return <p>{t('Loading')}</p>
+    if(!data[0]) return <p>{t('There is no content at the moment')}</p>
     return(
         <>
             <div className="d-flex justify-content-center mb-3">

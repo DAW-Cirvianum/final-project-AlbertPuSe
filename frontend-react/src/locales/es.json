@@ -21,6 +21,7 @@
     "artists":"artistas",
     "Most recent artists":"Artistas más recientes",
     "Most recent artworks":"Obras más recientes",
+    "Recent artworks by the artist":"Obras recientes del artista.",
     "Profile":"Perfil",
     "profile":"perfil",
     "Add art":"Añadir arte",
@@ -47,9 +48,28 @@
         "Portrait":"Retrato",
         "Nature":"Naturaleza"
     },
+    "Username or email":"Nombre de usuaro o email",
+    "Password":"Contraseña",
+    "Send":"Enviar",
     "Create artwork":"Crear obra",
+    "Create article":"Crear artículo",
     "Cancel":"Cancelar",
+    "Confirm":"Confirmar",
+    "Delete":"Eliminar",
+    "Modify":"Modificar",
+    "Page":"Página",
+    "of":"de",
     "Next":"Siguiente",
     "Previous":"Anterior",
-    "Back":"Volver"
+    "Back":"Volver",
+    "Price":"Precio",
+    "About artist":"Sobre el artista",
+    "Other works by the author":"Otras obras del autor",
+    "Make an offer":"Hacer oferta",
+    "Artists options":"Opciones de los artistas",
+    "Artists menu":"Menú de artistas",
+    "labelArtwork":{
+
+    },
+    "There is no content at the moment":"No hay contenido por el momento"
 }

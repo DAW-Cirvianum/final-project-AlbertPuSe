@@ -5,7 +5,7 @@ import Layout from './components/layout/Layout.jsx'
 import Home from './components/public/home/Home'
 import ForumPage from './components/public/forum/ForumPage'
 import { ROUTES } from './routes.js'
-import NotFound from './components/public/NotFound.jsx'
+import NotFound from './components/NotFound.jsx'
 import Profile from './components/user/profile/Profile.jsx'
 import AuctionsPage from './components/user/auctions/AuctionsPage.jsx'
 import ProtectedRoute from './context/ProtectedRoute.jsx'
@@ -20,7 +20,11 @@ import MyArtworks from './components/artist/myArtworks/MyArtworks.jsx'
 import MyArticles from './components/artist/myArticles/MyArticles.jsx'
 import ArtworksPage from './components/public/artworks/ArtworksPage.jsx'
 import ArticlesPage from './components/public/articles/ArticlesPage.jsx'
+import ArticlePage from './components/public/articles/ArticlePage.jsx'
 import TopicPage from './components/public/forum/TopicPage.jsx'
+import ArtistPage from './components/public/artists/ArtistPage.jsx'
+import ArtworkPage from './components/public/artworks/ArtworkPage.jsx'
+import AuctionPage from './components/user/auctions/AuctionPage.jsx'
 
 function App() {
 
@@ -29,10 +33,11 @@ function App() {
       <Route element={<Layout/>}>
         <Route path={ROUTES.HOME} element={<Home/>}/>
         <Route path={ROUTES.ARTISTS} element={<ArtistsPage />}/>
+        <Route path={ROUTES.ARTISTS_ID} element={<ArtistPage/>}/>
         <Route path={ROUTES.ARTWORKS} element={<ArtworksPage />}/>
-        {/* <Route path={ROUTES.ARTWORKS_ID} element={<Artwork />}/> */}
+        <Route path={ROUTES.ARTWORKS_ID} element={<ArtworkPage />}/>
         <Route path={ROUTES.ARTICLES} element={<ArticlesPage />}/>
-        {/* <Route path={ROUTES.ARTICLES_ID} element={<Article />}/> */}
+        <Route path={ROUTES.ARTICLES_ID} element={<ArticlePage />}/>
         <Route path={ROUTES.FORUM} element={<ForumPage />}/>
         <Route path={ROUTES.FORUM_ID} element={<TopicPage />}/>
         <Route path={ROUTES.LOGIN} element={<Login />}/>
@@ -40,6 +45,7 @@ function App() {
         <Route element={<ProtectedRoute/>}>
           <Route path={ROUTES.PROFILE} element={<Profile/>}/>
           <Route path={ROUTES.AUCTIONS} element={<AuctionsPage/>}/>
+          <Route path={ROUTES.AUCTIONS_ID} element={<AuctionPage/>}/>
         </Route>
         <Route element={<RoleRoute role={'artist'}/>}>
           <Route path={ROUTES.ARTIST_PROFILE} element={<LayoutArtistDashboard />}>

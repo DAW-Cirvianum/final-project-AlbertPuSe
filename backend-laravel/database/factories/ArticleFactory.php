@@ -26,6 +26,7 @@ class ArticleFactory extends Factory
             'title'=>fake()->sentence,
             'content'=>fake()->paragraph(rand(3,5),true),
             'user_id'=>$artist->id,
+            'image'=>'https://placehold.co/300x300'
         ];
     }
 }

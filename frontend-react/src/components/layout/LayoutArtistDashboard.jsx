@@ -13,12 +13,12 @@ export default function LayoutArtistDashboard(){
     return(
         <>
             <Button className="d-sm-none" onClick={handleShow}>
-                Menu
+                {t('Artists menu')}
             </Button>
 
             <Offcanvas show={show} onHide={handleClose}>
                 <Offcanvas.Header closeButton>
-                    <Offcanvas.Title>Menú</Offcanvas.Title>
+                    <Offcanvas.Title>{t('Artists options')}</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                     <Nav className="flex-column">
