@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Article;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class ArticleController extends Controller
@@ -108,6 +109,44 @@ class ArticleController extends Controller
         return response()->json([
             'status'=>true,
             'articles'=>$deletedArticles
+        ],200);
+    }
+
+    public function modifyArticle(Request $request, Article $article){
+        $validator= Validator::make($request->all(),[
+            'title'=>['sometimes','string','max:255'],
+            'content'=>['sometimes','string'],
+            'image' => ['sometimes','nullable','image','mimes:jpg,jpeg,png,webp','max:2048'],
+        ]);
+
+        if($validator->fails()){
+            return response()->json([
+                'status'=>false,
+                'message'=>$validator->errors(),
+            ],422);
+        }
+
+        $article->update([
+            'title'=>$request->title??$article->title,
+            'content'=>$request->content??$article->content,
+        ]);
+        
+        if ($request->hasFile('image')) {
+            if ($article->image && Storage::disk('public')->exists($article->image)) {
+                Storage::disk('public')->delete($article->image);
+            }
+
+            $path=$request->file('image')->store('artworks','public');
+
+            $article->update([
+                'image'=>$path
+            ]);
+        }
+
+        return response()->json([
+                'status'=>true,
+                'message'=>'Article modified',
+                'article'=>$article
         ],200);
     }
 }

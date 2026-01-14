@@ -53,7 +53,7 @@ export default function Register(){
 
     function showError(){
         if(error){
-            return <p>{error}</p>
+            return <span>{error}</span>
         }
     }
 
@@ -64,74 +64,74 @@ export default function Register(){
                 <h1>Register</h1>
                     <form noValidate className={validate ? 'was-validated p-4' : 'p-4'} onSubmit={handleSubmit}>
                         <div>
-                        <label className="form-label" htmlFor="name">Nom</label>
-                        <input className="form-control"
-                            name="name" 
-                            type="text"
-                            value={form.name} 
-                            onChange={handleChange} 
-                            placeholder="Nom complet" 
-                            required
-                        />
-                        <div className="invalid-feedback">
-                            <p>{t('Invalid name')}</p>
-                        </div>
-                        </div>
-                        <div>
-                        <label className="form-label" htmlFor="username"> Nom d'usuari</label>
-                        <input className="form-control"
-                            name="username" 
-                            type="text"
-                            value={form.username} 
-                            onChange={handleChange} 
-                            placeholder="Nom d'usuari"
-                            required 
-                        />
-                        <div className="invalid-feedback">
-                            <p>{t('Invalid username')}</p>
-                        </div>
+                            <label className="form-label" htmlFor="name">Nom</label>
+                            <input className="form-control"
+                                name="name" 
+                                type="text"
+                                value={form.name} 
+                                onChange={handleChange} 
+                                placeholder="Nom complet" 
+                                required
+                            />
+                            <div className="invalid-feedback">
+                                <p>{t('Invalid name')}</p>
+                            </div>
                         </div>
                         <div>
-                        <label className="form-label" htmlFor="email">Email</label>
-                        <input className="form-control"
-                            name="email" 
-                            type="text"
-                            value={form.email} 
-                            onChange={handleChange} 
-                            placeholder="Email" 
-                            required
-                        />
-                        <div className="invalid-feedback">
-                            <p>{t('Invalid email')}</p>
+                            <label className="form-label" htmlFor="username"> Nom d'usuari</label>
+                            <input className="form-control"
+                                name="username" 
+                                type="text"
+                                value={form.username} 
+                                onChange={handleChange} 
+                                placeholder="Nom d'usuari"
+                                required 
+                            />
+                            <div className="invalid-feedback">
+                                <p>{t('Invalid username')}</p>
+                            </div>
                         </div>
+                            <div>
+                            <label className="form-label" htmlFor="email">Email</label>
+                            <input className="form-control"
+                                name="email" 
+                                type="text"
+                                value={form.email} 
+                                onChange={handleChange} 
+                                placeholder="Email" 
+                                required
+                            />
+                            <div className="invalid-feedback">
+                                <p>{t('Invalid email')}</p>
+                            </div>
                         </div>
                         <div>
-                        <label className="form-label" htmlFor="password">Contrasenya</label>
-                        <input className="form-control"
-                            name="password" 
-                            type="password"
-                            value={form.password} 
-                            onChange={handleChange} 
-                            placeholder="Contrasenya" 
-                            required
-                        />
-                        <div className="invalid-feedback">
-                            <p>{t('Invalid password')}</p>
-                        </div>
+                            <label className="form-label" htmlFor="password">Contrasenya</label>
+                            <input className="form-control"
+                                name="password" 
+                                type="password"
+                                value={form.password} 
+                                onChange={handleChange} 
+                                placeholder="Contrasenya" 
+                                required
+                            />
+                            <div className="invalid-feedback">
+                                <p>{t('Invalid password')}</p>
+                            </div>
                         </div>
                         <div>
-                        <label className="form-label" htmlFor="password_confirmation">Confirmar contrasenya</label>
-                        <input className="form-control"
-                            name="password_confirmation" 
-                            type="password"
-                            value={form.password_confirmation} 
-                            onChange={handleChange} 
-                            placeholder="Repeteix la contrasenya" 
-                            required
-                        />
-                        <div className="invalid-feedback">
-                            <p>{t('Invalid password_confirmation')}</p>
-                        </div>
+                            <label className="form-label" htmlFor="password_confirmation">Confirmar contrasenya</label>
+                            <input className="form-control"
+                                name="password_confirmation" 
+                                type="password"
+                                value={form.password_confirmation} 
+                                onChange={handleChange} 
+                                placeholder="Repeteix la contrasenya" 
+                                required
+                            />
+                            <div className="invalid-feedback">
+                                <p>{t('Invalid password_confirmation')}</p>
+                            </div>
                         </div>
                         {showError()}
                         <button className="btn btn-primary mt-3">{t('Send')}</button>

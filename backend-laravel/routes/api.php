@@ -49,7 +49,9 @@ Route::middleware(['auth:sanctum','role:artist, users'])->group(function(){
 
 Route::middleware(['auth:sanctum','role:artist, admin'])->group(function(){
     Route::delete('articles/{article}/delete',[ArticleController::class,'deleteArticle']);
+    Route::patch('articles/{article}/modify',[ArticleController::class,'modifyArticle']);
     Route::delete('artworks/{artwork}/delete',[ArtworkController::class,'deleteArtwork']);
+    Route::patch('artworks/{artwork}/modify',[ArtworkController::class,'modifyArtwork']);
 });
 
 Route::middleware(['auth:sanctum','role:artist'])->group(function(){

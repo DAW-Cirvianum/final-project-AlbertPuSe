@@ -21,3 +21,7 @@ export async function createArticle(data){
 export async function deleteArticle(id){
     return await api.delete(`/articles/${id}/delete`);
 }
+
+export async function modifyArticle(id,data){
+    return await api.patch(`/articles/${id}/modify`,data);
+}

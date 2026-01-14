@@ -8,6 +8,7 @@ use App\Models\Artwork;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 
@@ -157,6 +158,53 @@ class ArtworkController extends Controller
         return response()->json([
             'status'=>true,
             'artworks'=>$deletedArtworks
+        ],200);
+    }
+
+    public function modifyArtwork(Request $request, Artwork $artwork){
+        $validator=Validator::make($request->all(),[
+            'title'=>['sometimes','string'],
+            'description'=>['sometimes','string'],
+            'price'=>['sometimes','decimal:2','min:0'],
+            'tag'=>['sometimes','nullable','integer'],
+            'type'=>['sometimes','integer'],
+            'image'=>['sometimes', 'nullable','image','mimes:jpg,jpeg,png,webp','max:2048'],
+        ]);
+
+        if($validator->fails()){
+            return response()->json([
+                'status'=>false,
+                'message'=>$validator->errors(),
+            ],422);
+        }
+
+        $artwork->update([
+            'title'=>$request->title??$artwork->title,
+            'description'=>$request->description??$artwork->description,
+            'price'=>$request->price??$artwork->price,
+            'art_type_id'=>$request->type??$artwork->art_type_id
+        ]);
+        
+        if ($request->hasFile('image')) {
+            if ($artwork->image && Storage::disk('public')->exists($artwork->image)) {
+                Storage::disk('public')->delete($artwork->image);
+            }
+
+            $path=$request->file('image')->store('artworks','public');
+
+            $artwork->update([
+                'image'=>$path
+            ]);
+        }
+
+        if($request->has('tag')){
+            $artwork->tags()->sync([$request->tag]);
+        }
+
+        return response()->json([
+            'status'=>true,
+            'message'=>'Artwork modified',
+            'artwork'=>$artwork
         ],200);
     }
 }

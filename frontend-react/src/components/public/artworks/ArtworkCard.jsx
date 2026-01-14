@@ -4,10 +4,12 @@ import { Card, Button } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import ConfirmModal from '../../modals/ConfirmModal';
-import { deleteArtwork } from '../../../api/artworks.api';
+import { deleteArtwork, modifyArtwork } from '../../../api/artworks.api';
+import EditArtworkModal from '../../modals/EditArtworkModal';
 
 export default function ArtworkCard({artwork,edit}){
     const [showDelete, setShowDelete] = useState(false);
+    const [showModify, setShowModify] = useState(false);
     const [selectedArtwork, setSelectedArtwork] = useState(null);
     const [visible, setVisible]=useState(true);
     const {t}=useTranslation();
@@ -20,9 +22,15 @@ export default function ArtworkCard({artwork,edit}){
         return <Card.Img variant='top' src={artwork.image} alt={artwork.title} fluid/>
     }
 
-    const confirmModify=()=>{
-        setShowModal(true);
+    const confirmModify=(article)=>{
+        setShowModify(true);
+        setSelectedArtwork(article);
+    }
 
+    const modifyArtworkF= async (data)=>{
+        const res= await modifyArtwork(artwork.id, data);
+        setShowModify(false);
+        setSelectedArtwork(null);
     }
 
     const confirmDelete= async (article)=>{
@@ -34,17 +42,19 @@ export default function ArtworkCard({artwork,edit}){
         const res= await deleteArtwork(artwork.id);
         setShowDelete(false);
         setVisible(false)
+        setSelectedArtwork(null);
     }
 
     const cancelModal=()=>{
-        setShowModal(false);
-        setSelectedArticle(null);
+        setShowDelete(false);
+        setShowModify(false);
+        setSelectedArtwork(null);
     }
 
     const buttonEdit=()=>{
         if(edit)  return(<>
                 <Button variant="danger" onClick={()=>confirmDelete(artwork)}>{t('Delete')}</Button>
-                <Button variant="info" onClick={()=>confirmModify()}>{t('Modify')}</Button>
+                <Button variant="info" onClick={()=>confirmModify(artwork)}>{t('Modify')}</Button>
             </>)
         
     }
@@ -68,6 +78,7 @@ export default function ArtworkCard({artwork,edit}){
                 </Card.Body>
             </Card>
             <ConfirmModal show={showDelete} onConfirm={deleteArtworkF} onClose={cancelModal} object={selectedArtwork} message={'Delete artwork'}/>
+            <EditArtworkModal show={showModify} onConfirm={modifyArtworkF} onClose={cancelModal} object={selectedArtwork} message={'Modify artwork'}/>
         </>
     )
 }

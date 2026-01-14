@@ -37,3 +37,7 @@ export async function createArtwork(data){
 export async function deleteArtwork(id){
     return await api.delete(`/artworks/${id}/delete`);
 }
+
+export async function modifyArtwork(id,data){
+    return await api.patch(`/artworks/${id}/modify`,data);
+}

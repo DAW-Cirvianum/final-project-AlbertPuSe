@@ -3,10 +3,12 @@ import { Card, Row, Col, Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import ConfirmModal from "../../modals/ConfirmModal";
-import { deleteArticle } from "../../../api/articles.api";
+import { deleteArticle, modifyArticle } from "../../../api/articles.api";
+import EditArticleModal from "../../modals/EditArticleModal";
 
 export default function ArticleCard({article, edit}){
     const [showDelete, setShowDelete] = useState(false);
+    const [showModify, setShowModify] = useState(false);
     const [selectedArticle, setSelectedArticle] = useState(null);
     const [visible, setVisible]=useState(true);
     const {t}=useTranslation();
@@ -26,8 +28,14 @@ export default function ArticleCard({article, edit}){
     }
 
     const confirmModify= async ()=>{
-        setShowModal(true);
-        setOnConfirm()
+        setShowModify(true);
+        setSelectedArticle(article)
+    }
+
+    const modifyArticleF= async (data)=>{
+            const res= await modifyArticle(article.id, data);
+            setShowModify(false);
+            setSelectedArticle(null);
     }
 
     const confirmDelete= async (article)=>{
@@ -43,6 +51,7 @@ export default function ArticleCard({article, edit}){
 
     const cancelModal=()=>{
         setShowDelete(false);
+        setShowModify(false);
         setSelectedArticle(null);
     }
 
@@ -72,6 +81,7 @@ export default function ArticleCard({article, edit}){
                 </Row>
             </Card>
             <ConfirmModal show={showDelete} onConfirm={deleteArticleF} onClose={cancelModal} object={selectedArticle} message={'Delete article'}/>
+            <EditArticleModal show={showModify} onConfirm={modifyArticleF} onClose={cancelModal} object={selectedArticle}/>
         </>
     )
 }

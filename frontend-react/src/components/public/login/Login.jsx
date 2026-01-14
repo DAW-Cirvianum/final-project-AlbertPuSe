@@ -9,6 +9,7 @@ export default function Login(){
     const [form, setForm] = useState({ login: '', password: '' })
     const { setUser } = useContext(AuthContext);
     const [validate, setValidated]=useState(false);
+    const [error,setError]=useState();
     const navigate = useNavigate();
     const {t}=useTranslation();
     const handleChange = e => {
@@ -31,12 +32,18 @@ export default function Login(){
         setUser(res.data.user)
         localStorage.setItem("token",token);
         navigate(ROUTES.HOME)
-    } catch (error) {
+      } catch (error) {
         console.error(error);
-        setError("No s'ha pogut crear l'usuari, torni a intentar")
+        setError("No s'ha trobat l'usuari, torni a intentar")
       }
     };
     fetchUsers();
+  }
+
+  function showError(){
+    if(error){
+      return <span>{error}</span>
+    }
   }
   
   return (
@@ -73,6 +80,7 @@ export default function Login(){
                   <p>{t('Invalid password')}</p>
                 </div>
               </div>
+              {showError()}
               <button className="btn btn-primary mt-3">{t('Send')}</button>
             </form>
         </div>

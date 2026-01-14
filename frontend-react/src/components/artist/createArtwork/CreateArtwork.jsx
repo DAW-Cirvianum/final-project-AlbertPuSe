@@ -36,10 +36,10 @@ export default function CreateArtwork(){
 
         try{
             const res= await createArtwork(formData);
-            setMessage(res.data.message);
             setForm({ title: '', description: '', price:'', tag:'', type:''});
             setValidated(false);
-            setImage(null)
+            setImage(null);
+            setMessage(res.data.message);
         }catch(error){
             console.error(error);
         }
@@ -54,6 +54,7 @@ export default function CreateArtwork(){
         setForm({ title: '', description: '', price:'', tag:'', type:''});
         setValidated(false);
         setImage(null);
+        setMessage(res.data.message);
     }
 
     function showImages(){
