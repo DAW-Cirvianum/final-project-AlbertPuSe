@@ -66,7 +66,20 @@ export default function Layout() {
 			<Outlet /> {/* Aquí es mostraran els continguts*/ }
 		</div>
 		<footer>
-			<p>Footer</p>
+			<div className="bg-dark-subtle d-flex justify-content-around p-3">
+				<div>
+					<p>NovArt-{t('Footer desc')}</p>
+				</div>
+				<div className="text-body-primary">
+					<Nav.Link className="fst-italic " as={Link} to={ROUTES.ARTISTS}>{t("Artists")}</Nav.Link>
+					<Nav.Link className="fst-italic " as={Link} to={ROUTES.ARTWORKS}>{t("Artworks")}</Nav.Link>	
+					<Nav.Link className="fst-italic " as={Link} to={ROUTES.ARTICLES}>{t("Articles")}</Nav.Link>	
+				</div>
+				<div>
+					<p>Albert puertas-Desenvolupament web</p>
+					<p><span>&copy;</span>2026 NovArt. All rights reserved.</p>
+				</div>
+			</div>
 		</footer>
     </>
   );

@@ -20,7 +20,7 @@ export default function SelectTag({valueTag, changeFunciton}){
     }
     return(
         <div className="mt-3">
-            <label className="form-label">{t('Label tags artwork')}</label>
+            <label className="form-label">{t('labelArtwork.Label tags artwork')}</label>
             <select value={valueTag} className="form-control" name="tag" required onChange={changeFunciton}>
                     <option value='' disabled>{t('Select a tag')}</option>
                     {fillSelect()}

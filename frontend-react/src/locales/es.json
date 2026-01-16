@@ -71,7 +71,25 @@
     "Artists options":"Opciones de los artistas",
     "Artists menu":"Menú de artistas",
     "labelArtwork":{
-
+        "Label name artwork":"Escribe el nombre de la obra",
+        "Label description artwork":"Escribe la descripcion de la obra",
+        "Label image artwork":"Selecciona la imagen de la obra",
+        "Label tags artwork":"Selecciona un tag per la obra",
+        "Label type artwork":"Selecciona el tipo de obra",
+        "Label price artwork":"Escribe el precio de la obra"
     },
-    "There is no content at the moment":"No hay contenido por el momento"
+    "labelArticle":{
+        "Label title article":"Escribe el título del artículo", 
+        "Label content article":"Escribe el contenido del artículo", 
+        "Label images article":"Selecciona una imagen para el artículo"
+    },
+    "labelTopic":{ 
+        "Label title topic":"Escribe el título del tema", 
+        "Label content topic":"Escribe el contenido del tema", 
+        "Label image topic":"Selecciona una imagen si es necesario" 
+    },
+    "Create topic":"Crear tema",
+    "There is no content at the moment":"No hay contenido por el momento",
+    "Footer desc":"Para dar voz a nuevos artistas",
+    "Label coment foro":"Escribe un comentario"
 }

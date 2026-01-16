@@ -71,7 +71,25 @@
     "Artists options":"Artists options",
     "Artists menu":"Artists menu",
     "labelArtwork":{
-
+        "Label name artwork":"Enter the name of the artwork",
+        "Label description artwork":"Enter the description of the artwork",
+        "Label image artwork":"Select the image of the artwork",
+        "Label tags artwork":"Select a tag for the artwork",
+        "Label type artwork":"Select the type of artwork",
+        "Label price artwork":"Enter the price of the artwork"
     },
-    "There is no content at the moment":"There is no content at the moment"
+    "labelArticle":{
+        "Label title article":"Type the title of the article",
+        "Label content article":"Type the content of the article",
+        "Label images article":"Select an image for the article"
+    },
+    "labelTopic":{
+        "Label title topic":"Enter the title of the topic",
+        "Label content topic":"Enter the content of the topic",
+        "Label image topic":"Select an image if necessary"
+    },
+    "Create topic":"Create topic",
+    "There is no content at the moment":"There is no content at the moment",
+    "Footer desc":"To give a voice to new artists",
+    "Label coment foro":"Write a comment"
 }

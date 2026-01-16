@@ -68,21 +68,21 @@ export default function CreateArtwork(){
             <h1>{t('Create artwork')}</h1>
             <form noValidate className={validate ? 'was-validated p-4' : 'p-4'} encType="multipart/form-data" onSubmit={handleSubmit}>
                 <div className="mt-3">
-                    <label className="form-label">{t('Label name artwork')}</label>
+                    <label className="form-label">{t('labelArtwork.Label name artwork')}</label>
                     <input className="form-control" name="title" type="text" onChange={handleChange} required/>
                     <div className="invalid-feedback">
                         {t('Invalid title')}
                     </div>
                 </div>
                 <div className="mt-3">
-                    <label className="form-label">{t('Label description artwork')}</label>
+                    <label className="form-label">{t('labelArtwork.Label description artwork')}</label>
                     <textarea className="form-control" name="description" onChange={handleChange} required/>
                     <div className="invalid-feedback">
                         {t('Invalid description')}
                     </div>
                 </div>
                 <div>
-                    <label className="form-label">{t('Label image artwork')}</label>
+                    <label className="form-label">{t('labelArtwork.Label image artwork')}</label>
                     <input className="form-control" name="image" type="file"
                     accept="image/*" onChange={handleImages} required/>
                     <div className="invalid-feedback">
@@ -92,7 +92,7 @@ export default function CreateArtwork(){
                 <SelectType valueType={form.type} changeFunciton={handleChange}/>
                 <SelectTag valueTag={form.tag} changeFunciton={handleChange}/>
                 <div className="mt-3">
-                    <label className="form-label">{t('Label price artwork')}</label>
+                    <label className="form-label">{t('labelArtwork.Label price artwork')}</label>
                     <input className="form-control" name="price" type="number" step={0.01} placeholder="" onChange={handleChange} required/>
                     <div className="invalid-feedback">
                         {t('Invalid price')}

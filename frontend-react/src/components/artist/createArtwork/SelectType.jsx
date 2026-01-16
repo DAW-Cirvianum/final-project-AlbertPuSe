@@ -21,7 +21,7 @@ export default function SelectType({valueType, changeFunciton}){
 
     return(
         <div className="mt-3">
-            <label className="form-label">{t('Label type artwork')}</label>
+            <label className="form-label">{t('labelArtwork.Label type artwork')}</label>
             <select value={valueType} className="form-control" name="type" required onChange={changeFunciton}>
                     <option value='' disabled >{t('Select a type')}</option>
                     {fillSelect()}

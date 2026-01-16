@@ -81,7 +81,7 @@ export default function TopicPage(){
                 <form noValidate className={validate ? 'was-validated' : ''} encType="multipart/form-data" onSubmit={handleSubmit}>
                     <h1>{t('Create article')}</h1>
                     <div className="d-flex flex-column w-50">
-                        <label className="form-label">{t('Label content article')}</label>
+                        <label className="form-label">{t('Label coment foro')}</label>
                         <textarea className="form-control" name="content" type="text" required
                         value={form.content} onChange={handleChange}/>
                         <div className="invalid-feedback">

@@ -65,7 +65,7 @@ export default function CreateTopic(){
             <h1>{t('Create topic')}</h1>
             <form noValidate className={validate ? 'was-validated' : ''} encType="multipart/form-data" onSubmit={handleSubmit}>
                 <div className="d-flex flex-column w-50">
-                    <label className="form-label">{t('Label title topic')}</label>
+                    <label className="form-label">{t('labelTopic.Label title topic')}</label>
                     <input className="form-control" name="title" type="text" required
                     value={form.title} onChange={handleChange}/>
                     <div className="invalid-feedback">
@@ -73,7 +73,7 @@ export default function CreateTopic(){
                     </div>
                 </div>
                 <div className="d-flex flex-column w-50">
-                    <label className="form-label">{t('Label content topic')}</label>
+                    <label className="form-label">{t('labelTopic.Label content topic')}</label>
                     <textarea className="form-control" name="content" type="text" required
                     value={form.content} onChange={handleChange}/>
                     <div className="invalid-feedback">
@@ -81,7 +81,7 @@ export default function CreateTopic(){
                     </div>
                 </div>
                 <div className="d-flex flex-column w-50">
-                    <label className="form-label">{t('Label images topic')}</label>
+                    <label className="form-label">{t('labelTopic.Label image topic')}</label>
                     <input className="form-control" name="images" type="file"
                     accept="image/*" onChange={handleImages}/>
                     <div className="invalid-feedback">

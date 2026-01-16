@@ -64,7 +64,7 @@ export default function CreateArticle(){
             <h1>{t('Create article')}</h1>
             <form noValidate className={validate ? 'was-validated' : ''} encType="multipart/form-data" onSubmit={handleSubmit}>
                 <div className="d-flex flex-column w-50">
-                    <label className="form-label">{t('Label title article')}</label>
+                    <label className="form-label">{t('labelArticle.Label title article')}</label>
                     <input className="form-control" name="title" type="text" required
                     value={form.title} onChange={handleChange}/>
                     <div className="invalid-feedback">
@@ -72,7 +72,7 @@ export default function CreateArticle(){
                     </div>
                 </div>
                 <div className="d-flex flex-column w-50">
-                    <label className="form-label">{t('Label content article')}</label>
+                    <label className="form-label">{t('labelArticle.Label content article')}</label>
                     <textarea className="form-control" name="content" type="text" required
                     value={form.content} onChange={handleChange}/>
                     <div className="invalid-feedback">
@@ -80,7 +80,7 @@ export default function CreateArticle(){
                     </div>
                 </div>
                 <div className="d-flex flex-column w-50">
-                    <label className="form-label">{t('Label images article')}</label>
+                    <label className="form-label">{t('labelArticle.Label images article')}</label>
                     <input className="form-control" name="images" type="file"
                     accept="image/*" onChange={handleImages}/>
                     <div className="invalid-feedback">

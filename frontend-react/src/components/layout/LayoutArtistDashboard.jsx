@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Button, Offcanvas, Nav } from "react-bootstrap"
 import { Link, Outlet } from "react-router-dom"
 import { useTranslation } from "react-i18next";
+import { ROUTES } from "../../routes";
 
 export default function LayoutArtistDashboard(){
     const [show, setShow]=useState(false)
@@ -46,7 +47,7 @@ export default function LayoutArtistDashboard(){
 
             <div style={{ marginLeft: '200px' }}>
                 <Outlet/>
-            </div>
+            </div>            
         </>
     )
 }

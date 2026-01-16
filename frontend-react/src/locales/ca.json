@@ -74,7 +74,25 @@
     "Artists options":"Opciosn d'artistes",
     "Artists menu":"Menú d'artistes",
     "labelArtwork":{
-
+        "Label name artwork":"Escriu el nom de l'obra",
+        "Label description artwork":"Escriu la descripcio de l'obra",
+        "Label image artwork":"Selecciona l'matge de l'obra",
+        "Label tags artwork":"Selecciona un tag per l'obra",
+        "Label type artwork":"Selecciona el tipus d'obra",
+        "Label price artwork":"Escriu el preu de l'obra"
     },
-    "There is no content at the moment":"No hi ha contingut de moment"
+    "labelArticle":{
+        "Label title article":"Escriu el titol de l'article",
+        "Label content article":"Escriu el contingut de l'article",
+        "Label images article":"Selecciona una imatge per l'article"
+    },
+    "labelTopic":{
+        "Label title topic":"Escriu el titol del tema",
+        "Label content topic":"Escriu el contingut del tema",
+        "Label image topic":"Selecciona una imatge si cal"
+    },
+    "Create topic":"Crear tema",
+    "There is no content at the moment":"No hi ha contingut de moment",
+    "Footer desc":"Per donar veu a nous artistes",
+    "Label coment foro":"Escriu un comentari"
 }
