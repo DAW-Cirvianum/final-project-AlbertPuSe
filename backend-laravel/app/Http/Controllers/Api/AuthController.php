@@ -71,7 +71,7 @@ class AuthController extends Controller
         if(!$user|| !Hash::check($request->password, $user->password)|| $request->username==$user->username){
             return response()->json([
                 'status'=>false,
-                'message' =>'invalid credentials',
+                'message' =>'Invalid credentials',
             ],401);
         }
 

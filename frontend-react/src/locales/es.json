@@ -7,6 +7,7 @@
     "user": {
         "name": "User name"
     },
+    "User information":"Información del usuario",
     "Auction": "Subasta",
     "auction": "subasta",
     "Auctions": "Subastas",
@@ -26,6 +27,7 @@
     "profile":"perfil",
     "Add art":"Añadir arte",
     "Add article":"Añadir artículo",
+    "Add topic":"Añadir tema",
     "My artworks":"Mis obras",
     "My articles":"Mis articulos",
     "Select a type":"Seleccione un tipo",

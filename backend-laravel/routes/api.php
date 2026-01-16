@@ -40,11 +40,13 @@ Route::get('tags',[ArtworkController::class,'tags']);
 
 Route::get('admin/articles/deleted',[ArticleController::class,'seeDeletedArticles']);
 Route::get('admin/artowrks/deleted',[ArtworkController::class,'seeDeletedArtworks']);
+
 Route::middleware(['auth:sanctum'])->group(function(){
     Route::get('me', [AuthController::class, 'me']);
 });
 
 Route::middleware(['auth:sanctum','role:artist, users'])->group(function(){
+    Route::post('forum/topics/{topic}/comment/create',[ForumController::class,'createComment']);
 });
 
 Route::middleware(['auth:sanctum','role:artist, admin'])->group(function(){
@@ -52,13 +54,19 @@ Route::middleware(['auth:sanctum','role:artist, admin'])->group(function(){
     Route::patch('articles/{article}/modify',[ArticleController::class,'modifyArticle']);
     Route::delete('artworks/{artwork}/delete',[ArtworkController::class,'deleteArtwork']);
     Route::patch('artworks/{artwork}/modify',[ArtworkController::class,'modifyArtwork']);
+    Route::delete('topics/{topic}/delete',[ForumController::class,'deleteTopic']);
+    Route::patch('topics/{topic}/modify',[ArtworkController::class,'modifyTopic']);
+    Route::patch('users/{user}/modify',[UserController::class,'modifyUser']);
 });
 
 Route::middleware(['auth:sanctum','role:artist'])->group(function(){
     Route::get('artist/my-artworks',[ArtworkController::class,'myArtworks']);
     Route::get('artist/my-articles',[ArticleController::class,'myArticles']);
+    Route::get('artist/my-topics',[ForumController::class,'myTopics']);
     Route::post('artist/artwork/create',[ArtworkController::class,'createArtwork']);
     Route::post('artist/article/create',[ArticleController::class,'createArticle']);
+    Route::post('artist/forum/topic/create',[ForumController::class,'createTopic']);
+
 });
 
 Route::middleware(['auth:sanctum','role:admin'])->group(function(){

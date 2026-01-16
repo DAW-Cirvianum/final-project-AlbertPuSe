@@ -1,12 +1,15 @@
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
-import { topic_Id } from "../../../api/forum.api";
+import { createComment, topic_Id } from "../../../api/forum.api";
 import BackButton from "../../BackButton";
 import CommentCard from "./CommentCard";
 
 export default function TopicPage(){
     const [data, setData]=useState(null);
+    const [form, setForm] = useState({ content: '' });
+    const [validate, setValidated]=useState(false);
+    const [message, setMessage]=useState(null);
     const params= useParams();
     const {t}=useTranslation();
 
@@ -16,7 +19,39 @@ export default function TopicPage(){
             setData(res.data.data);
         }
         fetchTopic()
-    },[])
+    },[form])
+    
+    const handleChange = e => {
+        setForm({ ...form, [e.target.name]: e.target.value })
+    }
+    
+    const handleSubmit= async e =>{
+        e.preventDefault();
+        const formElement = e.currentTarget;
+    
+        if (!formElement.checkValidity()) {
+            e.stopPropagation();
+            setValidated(true);
+            return;
+        }
+        const formData = new FormData();
+    
+        formData.append('content', form.content);
+        
+        try{
+            const res= await createComment(params.forumId,formData);
+            setMessage(res.data.message);
+            setForm({ content: '' });
+            setValidated(false);
+        }catch(error){
+            console.error(error);
+        }
+    }
+
+        const handleCancel=()=>{
+            setForm({ content: '' });
+            setValidated(false);
+        }
 
     function comments(){
         if(!data.comments) return <span>{t('Loading')}</span>
@@ -36,13 +71,26 @@ export default function TopicPage(){
                 </div>
                 <div>
                     <h1>{data.title}</h1>
-                    <img src={data.images[0].image}/>
+                    <img src={data.image}/>
                     <p>{data.content}</p>
                 </div>
             </div>
 
             <div>
                 <h2>Comments</h2>
+                <form noValidate className={validate ? 'was-validated' : ''} encType="multipart/form-data" onSubmit={handleSubmit}>
+                    <h1>{t('Create article')}</h1>
+                    <div className="d-flex flex-column w-50">
+                        <label className="form-label">{t('Label content article')}</label>
+                        <textarea className="form-control" name="content" type="text" required
+                        value={form.content} onChange={handleChange}/>
+                        <div className="invalid-feedback">
+                            {t('Invalid content')}
+                        </div>
+                    </div>
+                    <button className="btn btn-primary" type="submit">{t('Commentate')}</button>
+                    <button className="btn btn-danger" type="reset" onClick={handleCancel}>{t('Cancel')}</button>
+                </form>
                 {comments()}
             </div>
         </>

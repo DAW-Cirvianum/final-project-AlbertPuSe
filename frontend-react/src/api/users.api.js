@@ -29,3 +29,7 @@ export async function me(){
 export async function artistById(id){
     return api.get(`/artists/${id}`);
 }
+
+export async function modifyUser(id){
+    return api.patch(`/users/${id}/modify`);
+}

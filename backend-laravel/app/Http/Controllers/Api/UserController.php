@@ -5,14 +5,22 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
     public function modifyRole(Request $request, User $user){
 
-        $request->validate([
-            'role' => 'required|in:user,artist,admin'
+        $validator= Validator::make($request->all(),[
+            'content'=>['required','string'],
         ]);
+
+        if($validator->fails()){
+            return response()->json([
+                'status'=>false,
+                'message'=>$validator->errors(),
+            ],422);
+        }
 
         $user->role = $request->role;
         $user->save();
@@ -70,6 +78,34 @@ class UserController extends Controller
         return response()->json([
             'status'=>true,
             'artist'=>$artist,
+        ],200);
+    }
+
+    public function modifyUser(Request $request, User $user){
+        $validator= Validator::make($request->all(),[
+            'name'=>['sometimes','string','max:255'],
+            'username'=>['sometimes','string','unique:users,username'],
+            'email'=>['sometimes','string','email', 'max:255', 'unique:users,email'],
+
+        ]);
+
+        if($validator->fails()){
+            return response()->json([
+                'status'=>false,
+                'message'=>$validator->errors(),
+            ],422);
+        }
+
+        $user->update([
+            'name'=>$request->name??$user->name,
+            'username'=>$request->username??$user->username,
+            'email'=>$request->email??$user->email,
+        ]);
+
+        return response()->json([
+            'stauts'=>true,
+            'message'=>'User modifyed correctly',
+            'user'=>$user
         ],200);
     }
     

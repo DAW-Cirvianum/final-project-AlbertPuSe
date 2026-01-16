@@ -27,6 +27,7 @@ export default function LayoutArtistDashboard(){
                         <Nav.Link as={Link} to={'article'} onClick={handleClose} >{t('Articles')}</Nav.Link>
                         <Nav.Link as={Link} to={'artwork/create'} onClick={handleClose} >{t('Add art')}</Nav.Link>
                         <Nav.Link as={Link} to={'article/create'} onClick={handleClose}>{t('Add article')}</Nav.Link>
+                        <Nav.Link as={Link} to={'forum/create'} onClick={handleClose}>{t('Add topic')}</Nav.Link>
                     </Nav>
                 </Offcanvas.Body>
             </Offcanvas>
@@ -36,8 +37,10 @@ export default function LayoutArtistDashboard(){
                     <Nav.Link as={Link} to={'dashboard'} >{t('Profile')}</Nav.Link>
                     <Nav.Link as={Link} to={'artwork'} >{t('Artworks')}</Nav.Link>
                     <Nav.Link as={Link} to={'article'} >{t('Articles')}</Nav.Link>
+                    <Nav.Link as={Link} to={'forum'} >{t('Topic')}</Nav.Link>
                     <Nav.Link as={Link} to={'artwork/create'} >{t('Add art')}</Nav.Link>
                     <Nav.Link as={Link} to={'article/create'} >{t('Add article')}</Nav.Link>
+                    <Nav.Link as={Link} to={'forum/create'} >{t('Add topic')}</Nav.Link>
                 </Nav>
             </aside>
 

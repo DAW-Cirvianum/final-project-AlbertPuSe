@@ -7,6 +7,7 @@
     "user": {
         "name": "User name"
     },
+    "User information":"User information",
     "Auction":"Auction",
     "auction":"auction",
     "Auctions": "Auctions",
@@ -26,6 +27,7 @@
     "profile":"profile",
     "Add art":"Add art",
     "Add article":"Add article",
+    "Add topic":"Add topic",
     "My artworks":"My artworks",
     "My articles":"My articles",
     "Select a type":"Select a type",

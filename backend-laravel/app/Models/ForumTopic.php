@@ -20,10 +20,6 @@ class ForumTopic extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function images(){
-        return $this->hasMany((ForumTopicImage::class));
-    }
-
     public function comments(){
         return $this->hasMany(ForumComment::class);
     }

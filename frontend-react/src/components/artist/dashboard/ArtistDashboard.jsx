@@ -1,7 +1,9 @@
+import Profile from "../../user/profile/Profile";
+
 export default function ArtistDashboard(){
     return(
         <>
-            <p>Artist dashboard</p>
+            <Profile/>
         </>
     )
 }

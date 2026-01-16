@@ -13,7 +13,6 @@ import RoleRoute from './context/RoleRoute.jsx'
 import ArtistDashboard from './components/artist/dashboard/ArtistDashboard.jsx'
 import CreateArtwork from './components/artist/createArtwork/CreateArtwork.jsx'
 import CreateArticle from './components/artist/createArticle/CreateArticle.jsx'
-import CreateTheme from './components/artist/createTheme/CreateTheme.jsx'
 import ArtistsPage from './components/public/artists/ArtistsPage.jsx'
 import LayoutArtistDashboard from './components/layout/LayoutArtistDashboard.jsx'
 import MyArtworks from './components/artist/myArtworks/MyArtworks.jsx'
@@ -25,6 +24,8 @@ import TopicPage from './components/public/forum/TopicPage.jsx'
 import ArtistPage from './components/public/artists/ArtistPage.jsx'
 import ArtworkPage from './components/public/artworks/ArtworkPage.jsx'
 import AuctionPage from './components/user/auctions/AuctionPage.jsx'
+import CreateTopic from './components/artist/createTheme/CreateTopic.jsx'
+import MyTopics from './components/artist/myTopic/MyTopics.jsx'
 
 function App() {
 
@@ -55,8 +56,9 @@ function App() {
             <Route path="artwork/create" element={<CreateArtwork />} />
             <Route path="article" element={<MyArticles />} />
             <Route path="article/create" element={<CreateArticle />} />
+            <Route path="forum" element={<MyTopics />} />
+            <Route path="forum/create" element={<CreateTopic />} />
           </Route>
-          <Route path='topic/create' element={<CreateTheme/>}/>
         </Route>
       </Route>
       <Route path='*' element={<NotFound/>}/>

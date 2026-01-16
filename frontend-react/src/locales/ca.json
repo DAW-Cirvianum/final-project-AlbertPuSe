@@ -5,8 +5,12 @@
     "login": "Iniciar sessió",
     "logout": "Tancar sessió",
     "user": {
-        "name": "Nom d'usuari"
+        "name": "Nom ",
+        "username":"Nom d'usuari",
+        "email":" Correu electronic",
+        "password":"Contrasenya"
     },
+    "User information":"Informació de l'usuari",
     "Auction":"Subhasta",
     "auction":"subhasta",
     "Auctions": "Subhastes",
@@ -26,6 +30,7 @@
     "profile":"perfil",
     "Add art":"Afegir art",
     "Add article":"Afegir article",
+    "Add topic":"Afegir tema",
     "My artworks":"Les meves obres",
     "My articles":"Els meus articles",
     "Select a type":"Seleccioneu un tipus",

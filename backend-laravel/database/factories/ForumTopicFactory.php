@@ -23,6 +23,7 @@ class ForumTopicFactory extends Factory
             'title'=>fake()->sentence(6),
             'content'=>fake()->paragraph(3,true),
             'user_id'=>User::where('role','artist')->inRandomOrder()->first()->id,
+            'image'=>'https://placehold.co/300x300'
         ];
     }
 }

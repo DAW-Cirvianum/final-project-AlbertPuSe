@@ -6,7 +6,7 @@ import { ROUTES } from "../../routes";
 import { useTranslation } from "react-i18next";
 
 export default function Layout() {
-	const {user, logout}=useContext(AuthContext)
+	const {user, logout}=useContext(AuthContext);
 	const { t, i18n } = useTranslation();
 
 	function linksUsers(){

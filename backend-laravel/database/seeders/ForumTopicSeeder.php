@@ -16,10 +16,6 @@ class ForumTopicSeeder extends Seeder
     public function run(): void
     {
         ForumTopic::factory(15)->create()->each(function($topic){
-            
-            ForumTopicImage::factory(rand(0,3))->create([
-                'forum_topic_id'=>$topic->id
-            ]);
 
             ForumComment::factory(rand(2,6))->create([
                 'forum_topic_id'=>$topic->id
